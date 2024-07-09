@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://eqwrplbc67n6"]
+
+[ext_resource type="Texture2D" uid="uid://byf0qnn4fkn0p" path="res://assets/Monochrome/Tiles/tile_0065.png" id="1_88qdf"]
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/sparka_12_shotgun/sparka_12_shotgun.gd" id="1_ef12k"]
+[ext_resource type="PackedScene" uid="uid://b6b02oioc8u4b" path="res://scenes/skills/main_weapons/sparka_12_shotgun/sparka_12_shotgun_bullet.tscn" id="2_7fcm6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrpa7"]
+radius = 500.0
+
+[node name="Sparka12Shotgun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ef12k")
+sparka_12_bullet = ExtResource("2_7fcm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, 2.72848e-12)
+rotation = 1.57078
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("1_88qdf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wrpa7")
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="ShootingCD" type="Timer" parent="."]
+wait_time = 1.8
+autostart = true
+
+[connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]

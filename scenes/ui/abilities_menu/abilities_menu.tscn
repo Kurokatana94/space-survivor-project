@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://lm3eqpij10w8"]
+
+[ext_resource type="Script" path="res://scenes/ui/abilities_menu/abilities_menu.gd" id="1_8vpxf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfmlg"]
+bg_color = Color(0.843137, 0.498039, 0.341176, 1)
+
+[node name="AbilitiesMenu" type="MarginContainer" node_paths=PackedStringArray("buttons")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8vpxf")
+buttons = [NodePath("PanelContainer/MarginContainer/VBoxContainer/Button")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(180, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_bfmlg")
+text = "Ability to choose"
+icon_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://o4yptwrhkkqo"]
+
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/sparka_12_shotgun/sparka_12_shotgun_manager.gd" id="1_rtwri"]
+[ext_resource type="PackedScene" uid="uid://eqwrplbc67n6" path="res://scenes/skills/main_weapons/sparka_12_shotgun/sparka_12_shotgun.tscn" id="2_ip208"]
+
+[node name="Sparka12ShotgunManager" type="Node2D"]
+script = ExtResource("1_rtwri")
+sparka_12_shotgun = ExtResource("2_ip208")
+tags = Array[String](["main", "projectile"])

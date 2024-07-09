@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpkbe2c42tbl5"]
+
+[ext_resource type="Script" path="res://scenes/skills/cannon_turret_skill/cannon_turret_manager.gd" id="1_mnxwy"]
+[ext_resource type="PackedScene" uid="uid://woi05kr8y5wk" path="res://scenes/skills/cannon_turret_skill/cannon_turret_skill.tscn" id="2_u2kln"]
+
+[node name="CannonTurretManager" type="Node" groups=["cannon_turret_manager"]]
+script = ExtResource("1_mnxwy")
+cannon_turret_skill = ExtResource("2_u2kln")
+tags = Array[String](["turret", "explosive"])
+
+[node name="DeploymentCD" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="DeploymentCD" to="." method="_on_deployment_cd_timeout"]

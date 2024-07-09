@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://4nmv4htbttnm"]
+
+[ext_resource type="Script" path="res://scenes/pickable_items/exp_crystal/exp_crystal.gd" id="1_2dw7o"]
+[ext_resource type="Texture2D" uid="uid://b7grdurcmr6tw" path="res://assets/Monochrome/Tiles/tile_0090.png" id="2_6ywcb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jbfr"]
+radius = 4.0
+height = 10.0
+
+[node name="ExpCrystal1" type="Area2D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_2dw7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("2_6ywcb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_2jbfr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxs5r56a8s6gg"]
+
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/g-72r_carabine/g-72r_carabine_manager.gd" id="1_rghfo"]
+[ext_resource type="PackedScene" uid="uid://cpcq0qqvth4di" path="res://scenes/skills/main_weapons/g-72r_carabine/g_72r_carabine.tscn" id="2_67gcu"]
+
+[node name="G-72RCarabineManager" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rghfo")
+g72r_carbine = ExtResource("2_67gcu")
+tags = Array[String](["main", "projectile", "piercing"])

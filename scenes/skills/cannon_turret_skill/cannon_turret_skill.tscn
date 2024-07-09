@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://woi05kr8y5wk"]
+
+[ext_resource type="Script" path="res://scenes/skills/cannon_turret_skill/cannon_turret_skill.gd" id="1_hankc"]
+[ext_resource type="Texture2D" uid="uid://bxp08njbr0fe2" path="res://assets/Monochrome/Tiles/tile_0103.png" id="1_vg7qx"]
+[ext_resource type="PackedScene" uid="uid://63bda61a4ftx" path="res://scenes/skills/cannon_turret_skill/cannon_ball_manager.tscn" id="2_paugs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dlf73"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1na7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vg7qx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaaqq"]
+radius = 4.12311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qilwl"]
+radius = 350.0
+
+[node name="CannonTurretSkill" type="StaticBody2D"]
+top_level = true
+collision_layer = 16
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_dlf73")
+script = ExtResource("1_hankc")
+explosive_bullet_manager = ExtResource("2_paugs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1na7k")
+animation = &"idle"
+
+[node name="ShootingPivot" type="Marker2D" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+rotation = -0.00918991
+
+[node name="ShootingPoint" type="Marker2D" parent="AnimatedSprite2D/ShootingPivot"]
+unique_name_in_owner = true
+position = Vector2(7, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yaaqq")
+
+[node name="SkillDuration" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="ShootingCD" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="EnemyAimBot" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAimBot"]
+shape = SubResource("CircleShape2D_qilwl")
+debug_color = Color(0.717647, 0.470588, 0.294118, 0.419608)
+
+[connection signal="timeout" from="SkillDuration" to="." method="_on_skill_duration_timeout"]
+[connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]

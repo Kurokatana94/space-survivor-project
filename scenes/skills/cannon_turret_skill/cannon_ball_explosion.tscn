@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddb8788bks3xo"]
+
+[ext_resource type="Script" path="res://scenes/skills/bullet_types_scripts/explosive_bullet/bullet_explosion.gd" id="1_febt3"]
+[ext_resource type="Texture2D" uid="uid://c53u8aum6yp1g" path="res://assets/Monochrome/Tiles/tile_0109.png" id="2_bwjcr"]
+[ext_resource type="Texture2D" uid="uid://ux2l0s5ou4vy" path="res://assets/Monochrome/Tiles/tile_0110.png" id="3_erlwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n67f4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bwjcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_erlwc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuocb"]
+radius = 40.0
+
+[node name="CannonBallExplosion" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_febt3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_n67f4")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cuocb")
+debug_color = Color(0.764706, 0.403922, 0.513726, 0.419608)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

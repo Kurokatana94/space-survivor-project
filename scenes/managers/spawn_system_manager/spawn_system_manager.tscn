@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://17bt6q4jvf23"]
+
+[ext_resource type="Script" path="res://scenes/managers/spawn_system_manager/spawn_system_manager.gd" id="1_7508y"]
+
+[node name="SpawnSystemManager" type="Node"]
+script = ExtResource("1_7508y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

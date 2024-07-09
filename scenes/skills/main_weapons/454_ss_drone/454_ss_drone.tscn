@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxog73fs2pgdl"]
+
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone.gd" id="1_nudmx"]
+[ext_resource type="Texture2D" uid="uid://cc375kvq26xns" path="res://assets/Monochrome/Tiles/tile_0089.png" id="1_r5alv"]
+[ext_resource type="PackedScene" uid="uid://dka274sfcvdev" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone_bullet_manager.tscn" id="2_2pbo3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wn8j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r5alv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5sqf"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgvv7"]
+radius = 500.0
+
+[node name="454-SSDrone" type="CharacterBody2D" groups=["454_ss_drone"]]
+top_level = true
+y_sort_enabled = true
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_nudmx")
+projectile = ExtResource("2_2pbo3")
+
+[node name="ShootingCD" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ShootingBarrageDelay" type="Timer" parent="."]
+wait_time = 0.06
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_4wn8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f5sqf")
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(4, 0)
+
+[node name="EnemyAimBot" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAimBot"]
+shape = SubResource("CircleShape2D_jgvv7")
+
+[connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]
+[connection signal="timeout" from="ShootingBarrageDelay" to="." method="_on_shooting_barrage_delay_timeout"]

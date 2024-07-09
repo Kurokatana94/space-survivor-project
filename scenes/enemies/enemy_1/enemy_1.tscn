@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm2l1oo7kdotm"]
+
+[ext_resource type="Texture2D" uid="uid://dq1dk87cbotrw" path="res://assets/Monochrome/Tiles/tile_0124.png" id="1_p1wal"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy_1/enemy_1.gd" id="1_sqrhu"]
+[ext_resource type="PackedScene" uid="uid://158eh4ewy387" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_dxtgn"]
+[ext_resource type="PackedScene" uid="uid://bmjq6no4ftejx" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_ub2rt"]
+[ext_resource type="PackedScene" uid="uid://c14v16ewvalqg" path="res://scenes/components/health_system_component/health_system_component.tscn" id="5_uw8nr"]
+[ext_resource type="PackedScene" uid="uid://ck73nbdwthwhb" path="res://scenes/managers/exp_drop_manager/exp_drop_manager.tscn" id="6_rq8gj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urnlb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p1wal")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_418gd"]
+radius = 3.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmie7"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cq0r5"]
+radius = 9.0
+height = 20.0
+
+[node name="Enemy1" type="CharacterBody2D"]
+collision_layer = 48
+collision_mask = 48
+script = ExtResource("1_sqrhu")
+
+[node name="ExpDropManager" parent="." instance=ExtResource("6_rq8gj")]
+
+[node name="HealthSystemComponent" parent="." instance=ExtResource("5_uw8nr")]
+max_health = 150
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -3)
+sprite_frames = SubResource("SpriteFrames_urnlb")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_418gd")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_dxtgn")]
+collision_layer = 8
+damage = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_kmie7")
+debug_color = Color(0.780392, 0.392157, 0.513726, 0.419608)
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_system_component") instance=ExtResource("4_ub2rt")]
+collision_layer = 2
+collision_mask = 4
+health_system_component = NodePath("../HealthSystemComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(2, -3)
+shape = SubResource("CapsuleShape2D_cq0r5")
+debug_color = Color(0.427451, 0.592157, 0.313726, 0.419608)
+
+[connection signal="is_dead" from="HealthSystemComponent" to="." method="_on_health_system_component_is_dead"]

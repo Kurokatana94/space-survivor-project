@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck73nbdwthwhb"]
+
+[ext_resource type="Script" path="res://scenes/managers/exp_drop_manager/exp_drop_manager.gd" id="1_2t3pw"]
+[ext_resource type="PackedScene" uid="uid://4nmv4htbttnm" path="res://scenes/pickable_items/exp_crystal/exp_crystal_1/exp_crystal_1.tscn" id="2_vydi3"]
+
+[node name="ExpDropManager" type="Node"]
+script = ExtResource("1_2t3pw")
+exp_crystal_1 = ExtResource("2_vydi3")

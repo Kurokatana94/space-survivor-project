@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt14g47pgni3e"]
+
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone_manager.gd" id="1_1jo01"]
+[ext_resource type="PackedScene" uid="uid://dxog73fs2pgdl" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone.tscn" id="2_pkk3x"]
+
+[node name="454-SSDroneManager" type="Node2D"]
+script = ExtResource("1_1jo01")
+_454_ss_drone = ExtResource("2_pkk3x")
+tags = Array[String](["main", "turret", "energy"])

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dka274sfcvdev"]
+
+[ext_resource type="PackedScene" uid="uid://cyeoqjxb7b215" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone_bullet.tscn" id="1_6yugy"]
+[ext_resource type="Script" path="res://scenes/skills/bullet_types_scripts/explosive_bullet/explosive_bullet_manager.gd" id="1_srjm3"]
+[ext_resource type="PackedScene" uid="uid://c3rmq83a7c8a6" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone_bullet_explosion.tscn" id="2_fny14"]
+
+[node name="454-SSDroneBulletManager" type="Node2D"]
+script = ExtResource("1_srjm3")
+bullet_explosion = ExtResource("2_fny14")
+
+[node name="454-SSDroneBullet" parent="." instance=ExtResource("1_6yugy")]
+
+[connection signal="bullet_exploded" from="454-SSDroneBullet" to="." method="on_bullet_exploded"]

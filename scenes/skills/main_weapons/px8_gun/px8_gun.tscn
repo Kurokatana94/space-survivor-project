@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2s1g3ocbidy4"]
+
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/px8_gun/px8_gun.gd" id="1_ih6dv"]
+[ext_resource type="Texture2D" uid="uid://cjvweokvipv0l" path="res://assets/Monochrome/Tiles/tile_0117.png" id="2_3o3iq"]
+[ext_resource type="PackedScene" uid="uid://djxemxym426i0" path="res://scenes/skills/main_weapons/px8_gun/px_8_bullet.tscn" id="2_wulg7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snspg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3o3iq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enoru"]
+radius = 9.0
+
+[node name="PX8Gun" type="Area2D"]
+position = Vector2(0, -3)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ih6dv")
+px8_bullet = ExtResource("2_wulg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_snspg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_enoru")
+
+[node name="ShootingCD" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[node name="ShootingBarrageDelay" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]
+[connection signal="timeout" from="ShootingBarrageDelay" to="." method="_on_shooting_barrage_delay_timeout"]

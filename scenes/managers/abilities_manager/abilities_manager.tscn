@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bygbu0bsfef1"]
+
+[ext_resource type="Script" path="res://scenes/managers/abilities_manager/abilities_manager.gd" id="1_hgtxt"]
+[ext_resource type="PackedScene" uid="uid://lm3eqpij10w8" path="res://scenes/ui/abilities_menu/abilities_menu.tscn" id="2_dcvtf"]
+
+[node name="AbilitiesManager" type="Node" groups=["abilities_manager"]]
+process_mode = 3
+script = ExtResource("1_hgtxt")
+abilities_menu = ExtResource("2_dcvtf")

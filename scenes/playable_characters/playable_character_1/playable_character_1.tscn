@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8jwfj2ovbamx"]
+
+[ext_resource type="Script" path="res://scenes/playable_characters/playable_character_1/playable_character_1.gd" id="1_al7j8"]
+[ext_resource type="PackedScene" uid="uid://c14v16ewvalqg" path="res://scenes/components/health_system_component/health_system_component.tscn" id="3_5ui55"]
+[ext_resource type="PackedScene" uid="uid://bmjq6no4ftejx" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_37kse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2d82"]
+radius = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndofr"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oqoaf"]
+radius = 4.0
+height = 8.0
+
+[node name="PlayableCharacter1" type="CharacterBody2D" groups=["player"]]
+collision_layer = 16
+collision_mask = 32
+motion_mode = 1
+script = ExtResource("1_al7j8")
+
+[node name="HealthSystemComponent" parent="." instance=ExtResource("3_5ui55")]
+base_health = 100
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 8)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="PickUpArea" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_s2d82")
+debug_color = Color(0.584314, 0.541176, 0.270588, 0.419608)
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_system_component") instance=ExtResource("4_37kse")]
+position = Vector2(0, 8)
+collision_mask = 8
+health_system_component = NodePath("../HealthSystemComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_ndofr")
+debug_color = Color(0.788235, 0.392157, 0.478431, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_oqoaf")
+
+[connection signal="is_dead" from="HealthSystemComponent" to="." method="_on_health_system_component_is_dead"]

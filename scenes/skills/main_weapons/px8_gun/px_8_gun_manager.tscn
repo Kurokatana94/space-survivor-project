@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dew402d0ot2e1"]
+
+[ext_resource type="Script" path="res://scenes/skills/main_weapons/px8_gun/px_8_gun_manager.gd" id="1_tplxu"]
+[ext_resource type="PackedScene" uid="uid://d2s1g3ocbidy4" path="res://scenes/skills/main_weapons/px8_gun/px8_gun.tscn" id="2_cbdo7"]
+
+[node name="PX8GunManager" type="Node2D"]
+script = ExtResource("1_tplxu")
+px8_gun = ExtResource("2_cbdo7")
+tags = Array[String](["main", "projectile", "piercing"])
