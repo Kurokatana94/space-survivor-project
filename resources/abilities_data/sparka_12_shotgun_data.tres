@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilitiesData" load_steps=3 format=3 uid="uid://pi02epj2cnnw"]
+
+[ext_resource type="PackedScene" uid="uid://o4yptwrhkkqo" path="res://scenes/skills/main_weapons/sparka_12_shotgun/sparka_12_shotgun_manager.tscn" id="1_0y0jq"]
+[ext_resource type="Script" path="res://resources/abilities_data/abilities_data.gd" id="1_03sud"]
+
+[resource]
+script = ExtResource("1_03sud")
+name = "SPARKA 12"
+scene = ExtResource("1_0y0jq")
+description = "A shotgun that shoots multiple bullets in a cone"
+type = "skill"
+tags = Array[String](["main", "projectile"])

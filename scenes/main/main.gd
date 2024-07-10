@@ -4,6 +4,8 @@ extends Node
 @export var exo_suit_list: Array[Dictionary]
 @export var weapon_list: Array[Dictionary]
 
+@onready var abilities_manager = get_tree().get_first_node_in_group("abilities_manager")
+
 func _ready():
 	instantiate_player()
 	var player = get_tree().get_first_node_in_group("player")

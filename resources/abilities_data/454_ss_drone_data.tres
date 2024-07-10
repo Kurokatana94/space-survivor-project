@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilitiesData" load_steps=3 format=3 uid="uid://00ayrp5lxa6k"]
+
+[ext_resource type="PackedScene" uid="uid://bt14g47pgni3e" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone_manager.tscn" id="1_53bf5"]
+[ext_resource type="Script" path="res://resources/abilities_data/abilities_data.gd" id="1_k8p1x"]
+
+[resource]
+script = ExtResource("1_k8p1x")
+name = "454-SS \"Sparky Swarm\""
+scene = ExtResource("1_53bf5")
+description = "A drone that shoots bullets and follows you"
+type = "skill"
+tags = Array[String](["main", "turret", "explosive"])

@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bygbu0bsfef1"]
+[gd_scene load_steps=7 format=3 uid="uid://bygbu0bsfef1"]
 
 [ext_resource type="Script" path="res://scenes/managers/abilities_manager/abilities_manager.gd" id="1_hgtxt"]
 [ext_resource type="PackedScene" uid="uid://lm3eqpij10w8" path="res://scenes/ui/abilities_menu/abilities_menu.tscn" id="2_dcvtf"]
+[ext_resource type="Resource" uid="uid://d4jpc5dns8gwk" path="res://resources/abilities_data/px8_gun_data.tres" id="3_qyiqm"]
+[ext_resource type="Resource" uid="uid://bu5djyif582x6" path="res://resources/abilities_data/g_72r_data.tres" id="4_xs53b"]
+[ext_resource type="Resource" uid="uid://00ayrp5lxa6k" path="res://resources/abilities_data/454_ss_drone_data.tres" id="5_7ugc2"]
+[ext_resource type="Resource" uid="uid://pi02epj2cnnw" path="res://resources/abilities_data/sparka_12_shotgun_data.tres" id="6_g0euy"]
 
 [node name="AbilitiesManager" type="Node" groups=["abilities_manager"]]
 process_mode = 3
 script = ExtResource("1_hgtxt")
 abilities_menu = ExtResource("2_dcvtf")
+skill_list = Array[Resource("res://resources/abilities_data/abilities_data.gd")]([ExtResource("3_qyiqm"), ExtResource("4_xs53b"), ExtResource("5_7ugc2"), ExtResource("6_g0euy")])

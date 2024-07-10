@@ -40,10 +40,11 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_s2d82")
 debug_color = Color(0.584314, 0.541176, 0.270588, 0.419608)
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_system_component") instance=ExtResource("4_37kse")]
+[node name="HurtboxComponent" parent="." instance=ExtResource("4_37kse")]
 position = Vector2(0, 8)
 collision_mask = 8
-health_system_component = NodePath("../HealthSystemComponent")
+health_system_component = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://scenes/components/health_system_component/health_system_component.gd"),"base_health":100,"base_armor":0.0,"base_shield":0)
+
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -5)
