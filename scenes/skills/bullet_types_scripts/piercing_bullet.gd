@@ -8,6 +8,9 @@ const MAX_DISTANCE: int = 350
 
 var damage_range: Array[float]
 var damage_multiplier: float
+var tags: Array[String]
+var critical_chance: float
+var critical_damage: float
 var damaged_enemies: Array = []
 var travelled_distance: float = 0
 
@@ -25,5 +28,5 @@ func _on_area_entered(hurtbox):
 	if hurtbox in damaged_enemies || hurtbox == null:
 		return
 	else:
-		hurtbox.deal_damage_to_target(damage_range, damage_multiplier)
+		hurtbox.deal_damage_to_target(damage_range, damage_multiplier, critical_chance, critical_damage, tags)
 		damaged_enemies.append(hurtbox)

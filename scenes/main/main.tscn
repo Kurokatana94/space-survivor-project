@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://c8jwfj2ovbamx" path="res://scenes/playable_characters/playable_character_1/playable_character_1.tscn" id="1_wr204"]
 [ext_resource type="PackedScene" uid="uid://dxwj6qspn51hm" path="res://scenes/exo_suits/exo_suit_scout/exo_suit_scout.tscn" id="3_qgoj4"]
 [ext_resource type="PackedScene" uid="uid://dm2l1oo7kdotm" path="res://scenes/enemies/enemy_1/enemy_1.tscn" id="4_4m67o"]
-[ext_resource type="PackedScene" uid="uid://o4yptwrhkkqo" path="res://scenes/skills/main_weapons/sparka_12_shotgun/sparka_12_shotgun_manager.tscn" id="4_t1kt8"]
-[ext_resource type="PackedScene" uid="uid://dew402d0ot2e1" path="res://scenes/skills/main_weapons/px8_gun/px_8_gun_manager.tscn" id="5_8kph2"]
+[ext_resource type="Resource" uid="uid://d4jpc5dns8gwk" path="res://resources/abilities_data/px8_gun_data.tres" id="4_73cok"]
+[ext_resource type="Resource" uid="uid://bu5djyif582x6" path="res://resources/abilities_data/g_72r_data.tres" id="5_8621a"]
 [ext_resource type="PackedScene" uid="uid://17bt6q4jvf23" path="res://scenes/managers/spawn_system_manager/spawn_system_manager.tscn" id="5_l3uw3"]
-[ext_resource type="PackedScene" uid="uid://cxs5r56a8s6gg" path="res://scenes/skills/main_weapons/g-72r_carabine/g-72r_carabine_manager.tscn" id="6_w1nwi"]
-[ext_resource type="PackedScene" uid="uid://bt14g47pgni3e" path="res://scenes/skills/main_weapons/454_ss_drone/454_ss_drone_manager.tscn" id="7_hkpgu"]
+[ext_resource type="Resource" uid="uid://pi02epj2cnnw" path="res://resources/abilities_data/sparka_12_shotgun_data.tres" id="6_fvqv5"]
+[ext_resource type="Resource" uid="uid://00ayrp5lxa6k" path="res://resources/abilities_data/454_ss_drone_data.tres" id="7_kyt55"]
 [ext_resource type="PackedScene" uid="uid://wjsymo4wl3ju" path="res://scenes/managers/experience_manager/experience_manager.tscn" id="7_qah36"]
 [ext_resource type="PackedScene" uid="uid://bygbu0bsfef1" path="res://scenes/managers/abilities_manager/abilities_manager.tscn" id="8_bsfhp"]
 
@@ -162,19 +162,7 @@ exo_suit_list = Array[Dictionary]([{
 "exo_suit_name": "ExoSuit: Scout",
 "scene": ExtResource("3_qgoj4")
 }])
-weapon_list = Array[Dictionary]([{
-"scene": ExtResource("5_8kph2"),
-"weapon_name": "PX8"
-}, {
-"scene": ExtResource("4_t1kt8"),
-"weapon_name": "SPARKA 12"
-}, {
-"scene": ExtResource("6_w1nwi"),
-"weapon_name": "G-72R"
-}, {
-"scene": ExtResource("7_hkpgu"),
-"weapon_name": "454-SS \"Sparky Swarm\""
-}])
+weapon_list = Array[Resource("res://resources/abilities_data/abilities_data.gd")]([ExtResource("4_73cok"), ExtResource("5_8621a"), ExtResource("6_fvqv5"), ExtResource("7_kyt55")])
 
 [node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
 

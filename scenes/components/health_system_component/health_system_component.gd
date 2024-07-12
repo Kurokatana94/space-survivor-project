@@ -13,7 +13,6 @@ var current_health: int
 var current_shield: int
 
 func _ready():
-	print("Health System Component is ready")
 	max_health = base_health
 	current_health = max_health
 
@@ -37,7 +36,7 @@ func damage_calculation(damage_range: int, damage_multiplier: float, armor: floa
 
 func shield_check(damage: float, tags: Array[String]) -> int:
 	var final_damage: int
-	if current_shield > 0 && tags != null:
+	if current_shield > 0 && tags.size() <= 0:
 		for tag in tags:
 			match tag:
 				"projectile":

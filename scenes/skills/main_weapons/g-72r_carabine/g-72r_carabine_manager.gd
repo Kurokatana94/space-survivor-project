@@ -5,6 +5,8 @@ extends Node2D
 
 var damage_range: Array[float] = [90.0, 110.0] #damage range for base level weapon
 var damage_multiplier:float = 1.0
+var critical_chance: float = 0.0
+var critical_damage: float = 2.0
 var type: String = "skill"
 var ability_name: String = "G-72R"
 var description: String = "Piercing ammo shooting carbine"
@@ -24,15 +26,22 @@ func instantiate_gun():
 	new_carbine.global_position = get_parent().global_position
 	add_child(new_carbine)
 	new_carbine.damage_range = damage_range
+	new_carbine.tags = tags
 
 	match current_level:
 		0:
 			new_carbine.damage_multiplier = damage_multiplier
+			new_carbine.critical_chance = critical_chance
+			new_carbine.critical_damage = critical_damage
 		1:
 			new_carbine.damage_multiplier = damage_multiplier + .25
+			new_carbine.critical_chance = critical_chance
+			new_carbine.critical_damage = critical_damage			
 		2:
 			new_carbine.damage_multiplier = damage_multiplier + .25
 			new_carbine.shooting_cd.wait_time -= .5
+			new_carbine.critical_chance = critical_chance
+			new_carbine.critical_damage = critical_damage
 			if new_carbine.shooting_cd.is_stopped():
 				new_carbine.shooting_cd.start()
 			else:
@@ -41,6 +50,8 @@ func instantiate_gun():
 		3:
 			new_carbine.damage_multiplier = damage_multiplier + .75
 			new_carbine.shooting_cd.wait_time -= .5
+			new_carbine.critical_chance = critical_chance
+			new_carbine.critical_damage = critical_damage
 			if new_carbine.shooting_cd.is_stopped():
 				new_carbine.shooting_cd.start()
 			else:
@@ -49,6 +60,8 @@ func instantiate_gun():
 		4:
 			new_carbine.damage_multiplier = damage_multiplier + .75
 			new_carbine.shooting_cd.wait_time -= 1
+			new_carbine.critical_chance = critical_chance
+			new_carbine.critical_damage = critical_damage
 			if new_carbine.shooting_cd.is_stopped():
 				new_carbine.shooting_cd.start()
 			else:
@@ -57,6 +70,8 @@ func instantiate_gun():
 		5:
 			new_carbine.damage_multiplier = damage_multiplier + 3.0
 			new_carbine.shooting_cd.wait_time -= 1
+			new_carbine.critical_chance = critical_chance
+			new_carbine.critical_damage = critical_damage
 			if new_carbine.shooting_cd.is_stopped():
 				new_carbine.shooting_cd.start()
 			else:

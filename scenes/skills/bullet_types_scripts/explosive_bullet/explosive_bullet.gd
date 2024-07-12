@@ -17,5 +17,5 @@ func _process(delta):
 	if travelled_distance > MAX_DISTANCE:
 		bullet_exploded.emit()
 
-func _on_area_entered(body):
+func _on_area_entered(body: Area2D):
 	bullet_exploded.emit()

@@ -19,7 +19,6 @@ func get_direction_to_player():
 		return
 	return (current_player.global_position - global_position).normalized()
 
-
 func _on_health_system_component_is_dead():
 	death()
 

@@ -6,6 +6,7 @@ class_name HitboxComponent
 @export var damage_cd: float = 1.0
 @onready var damage_cd_timer: Timer = $DamageCDTimer
 
+var tags: Array[String] = []
 var damage_range: Array[float] = [0, 0]
 var target: Area2D
 
@@ -35,5 +36,5 @@ func _on_area_exited(area: Area2D):
 func deal_damage():
 	if target == null:
 		return
-	print(target.name)
-	target.deal_damage_to_target(damage_range, damage_multiplier)
+	target.deal_damage_to_target(damage_range, damage_multiplier, 0.0, 0.0, tags)
+

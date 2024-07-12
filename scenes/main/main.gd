@@ -2,7 +2,7 @@ extends Node
 
 @export var player_scene: PackedScene
 @export var exo_suit_list: Array[Dictionary]
-@export var weapon_list: Array[Dictionary]
+@export var weapon_list: Array[AbilitiesData]
 
 @onready var abilities_manager = get_tree().get_first_node_in_group("abilities_manager")
 
@@ -27,9 +27,13 @@ func instantiate_exo_suit(player: CharacterBody2D):
 			player.add_child(exo_suit)
 
 func instantiate_weapons(player: CharacterBody2D):
+	print("weapon instantiated")
 	if global_data.selected_weapon == "":
 		return
 	for i in weapon_list.size():
-		if weapon_list[i]["weapon_name"] == global_data.selected_weapon:
-			var weapon = weapon_list[i]["scene"].instantiate()
+		if weapon_list[i].name == global_data.selected_weapon:
+			var weapon = weapon_list[i].scene.instantiate()
 			player.add_child(weapon)
+			abilities_manager.equipped_skill_list.append(weapon_list[i])
+			abilities_manager.skill_list.append(weapon_list[i])
+			abilities_manager.added_skills += 1

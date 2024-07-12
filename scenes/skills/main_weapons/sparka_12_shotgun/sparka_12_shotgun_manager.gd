@@ -5,6 +5,8 @@ extends Node2D
 
 var damage_range: Array[float] = [15.0, 18.0] #damage range for base level weapon
 var damage_multiplier: float = 1.0
+var critical_chance: float = 0.0
+var critical_damage: float = 2.0
 var pallets_amount: int = 8
 var reload_speed: float = 5.5
 var base_range: float = 120
@@ -28,22 +30,29 @@ func instantiate_gun():
     add_child(new_gun)
     new_gun.damage_range = damage_range
     new_gun.max_range = base_range
+    new_gun.tags = tags
 
     match current_level:
         0:
             new_gun.damage_multiplier = damage_multiplier
             new_gun.pallets_amount = pallets_amount
             new_gun.reload_speed = reload_speed
+            new_gun.critical_chance = critical_chance
+            new_gun.critical_damage = critical_damage
         1:
             new_gun.damage_multiplier = damage_multiplier
             new_gun.pallets_amount = pallets_amount
             new_gun.reload_speed = reload_speed - 0.5
             new_gun.shooting_cd.wait_time -= 0.2
+            new_gun.critical_chance = critical_chance
+            new_gun.critical_damage = critical_damage
         2:
             new_gun.damage_multiplier = damage_multiplier + .5
             new_gun.pallets_amount = pallets_amount
             new_gun.reload_speed = reload_speed - 0.5
             new_gun.shooting_cd.wait_time -= 0.2
+            new_gun.critical_chance = critical_chance
+            new_gun.critical_damage = critical_damage
 
             if new_gun.shooting_cd.is_stopped():
                 new_gun.shooting_cd.start()
@@ -55,6 +64,8 @@ func instantiate_gun():
             new_gun.pallets_amount = pallets_amount + 2
             new_gun.reload_speed = reload_speed - 0.5
             new_gun.shooting_cd.wait_time -= 0.2
+            new_gun.critical_chance = critical_chance
+            new_gun.critical_damage = critical_damage
 
             if new_gun.shooting_cd.is_stopped():
                 new_gun.shooting_cd.start()
@@ -66,6 +77,8 @@ func instantiate_gun():
             new_gun.pallets_amount = pallets_amount + 2
             new_gun.reload_speed = reload_speed - 0.5
             new_gun.shooting_cd.wait_time -= 0.2
+            new_gun.critical_chance = critical_chance
+            new_gun.critical_damage = critical_damage
 
             if new_gun.shooting_cd.is_stopped():
                 new_gun.shooting_cd.start()
@@ -78,6 +91,8 @@ func instantiate_gun():
             new_gun.reload_speed = reload_speed - 0.5
             new_gun.shooting_cd.wait_time -= 0.2
             new_gun.max_range = 500
+            new_gun.critical_chance = critical_chance
+            new_gun.critical_damage = critical_damage
 
             if new_gun.shooting_cd.is_stopped():
                 new_gun.shooting_cd.start()

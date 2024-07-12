@@ -7,7 +7,10 @@ extends Area2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 var damage_range: Array[float]
-var damage_multiplier: float = 1.0
+var damage_multiplier: float
+var tags: Array[String]
+var critical_chance: float
+var critical_damage: float
 var first_shot: bool = true
 var base_barrage_count: int = 2
 var current_barrage_count: int

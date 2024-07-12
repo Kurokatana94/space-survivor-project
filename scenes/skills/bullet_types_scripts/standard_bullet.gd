@@ -5,6 +5,9 @@ extends Area2D
 
 var damage_range: Array[float]
 var damage_multiplier: float
+var tags: Array[String]
+var critical_chance: float
+var critical_damage: float
 var travelled_distance: float = 0
 
 func _process(delta):
@@ -21,5 +24,5 @@ func _on_area_entered(hurtbox):
 	if hurtbox == null:
 		return
 	else:
-		hurtbox.deal_damage_to_target(damage_range, damage_multiplier)
+		hurtbox.deal_damage_to_target(damage_range, damage_multiplier, critical_chance, critical_damage, tags)
 		queue_free()

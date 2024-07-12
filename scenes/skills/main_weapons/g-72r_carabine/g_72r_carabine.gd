@@ -6,7 +6,10 @@ extends Area2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 var damage_range: Array[float]
-var damage_multiplier: float = 1.0
+var damage_multiplier: float
+var tags: Array[String]
+var critical_chance: float
+var critical_damage: float
 var first_shot: bool = true
 
 func _physics_process(delta):
@@ -27,6 +30,9 @@ func shoot():
 
 	bullet.damage_range = damage_range
 	bullet.damage_multiplier = damage_multiplier
+	bullet.tags = tags
+	bullet.critical_chance = critical_chance
+	bullet.critical_damage = critical_damage
 
 func check_highest_health():
 	var enemies_in_range = get_overlapping_areas()

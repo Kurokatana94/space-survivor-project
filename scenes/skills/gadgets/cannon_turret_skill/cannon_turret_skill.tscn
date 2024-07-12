@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://woi05kr8y5wk"]
 
-[ext_resource type="Script" path="res://scenes/skills/cannon_turret_skill/cannon_turret_skill.gd" id="1_hankc"]
+[ext_resource type="Script" path="res://scenes/skills/gadgets/cannon_turret_skill/cannon_turret_skill.gd" id="1_hankc"]
 [ext_resource type="Texture2D" uid="uid://bxp08njbr0fe2" path="res://assets/Monochrome/Tiles/tile_0103.png" id="1_vg7qx"]
-[ext_resource type="PackedScene" uid="uid://63bda61a4ftx" path="res://scenes/skills/cannon_turret_skill/cannon_ball_manager.tscn" id="2_paugs"]
+[ext_resource type="PackedScene" uid="uid://63bda61a4ftx" path="res://scenes/skills/gadgets/cannon_turret_skill/cannon_ball_manager.tscn" id="2_paugs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dlf73"]
 

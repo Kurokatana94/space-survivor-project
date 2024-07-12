@@ -5,6 +5,8 @@ extends Node
 
 var damage_range: Array[float] = [17.0, 34.0] #damage range for base level weapon
 var damage_multiplier: float = 1.0
+var critical_chance: float = 0.0
+var critical_damage: float = 2.0
 var type: String = "skill"
 var ability_name: String = "PX8"
 var description: String = "Barrage shooting pistol"

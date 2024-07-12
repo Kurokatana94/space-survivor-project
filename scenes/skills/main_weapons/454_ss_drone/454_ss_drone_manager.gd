@@ -20,6 +20,7 @@ func instantiate_drone():
     new_drone.global_position = get_random_location_around_player()
     add_child(new_drone)
     new_drone.damage_range = damage_range
+    new_drone.tags = tags
 
     match current_level:
         0:
@@ -86,6 +87,7 @@ func instantiate_extra_drone(current_damage_multiplier: float, current_shooting_
     new_drone.global_position = get_random_location_around_player()
     add_child(new_drone)
     new_drone.damage_range = damage_range
+    new_drone.tags = tags
     new_drone.damage_multiplier = current_damage_multiplier
     new_drone.shooting_cd.wait_time = current_shooting_cd
     new_drone.base_barrage_count = current_barrage_count

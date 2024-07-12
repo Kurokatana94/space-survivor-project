@@ -9,7 +9,8 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 var damage_range: Array[float]
-var damage_multiplier: float = 1.0
+var damage_multiplier: float
+var tags: Array[String]
 var base_explosion_radius: float
 var first_shot: bool = true
 var base_barrage_count: int = 1
@@ -55,7 +56,8 @@ func shoot():
 	new_projectile.damage_range = damage_range
 	new_projectile.damage_multiplier = damage_multiplier
 	new_projectile.base_explosion_radius = base_explosion_radius
-
+	new_projectile.tags = tags
+	
 	if base_barrage_count > 1:
 		shooting_barrage_delay.start()
 		current_barrage_count -= 1

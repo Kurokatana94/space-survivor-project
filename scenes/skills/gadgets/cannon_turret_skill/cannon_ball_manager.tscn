@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://63bda61a4ftx"]
 
 [ext_resource type="Script" path="res://scenes/skills/bullet_types_scripts/explosive_bullet/explosive_bullet_manager.gd" id="1_cbggj"]
-[ext_resource type="PackedScene" uid="uid://33vrwo5viky3" path="res://scenes/skills/cannon_turret_skill/cannon_ball.tscn" id="1_kxnsw"]
-[ext_resource type="PackedScene" uid="uid://ddb8788bks3xo" path="res://scenes/skills/cannon_turret_skill/cannon_ball_explosion.tscn" id="2_1q0w7"]
+[ext_resource type="PackedScene" uid="uid://33vrwo5viky3" path="res://scenes/skills/gadgets/cannon_turret_skill/cannon_ball.tscn" id="1_kxnsw"]
+[ext_resource type="PackedScene" uid="uid://ddb8788bks3xo" path="res://scenes/skills/gadgets/cannon_turret_skill/cannon_ball_explosion.tscn" id="2_1q0w7"]
 
 [node name="CannonBallManager" type="Node2D"]
 script = ExtResource("1_cbggj")

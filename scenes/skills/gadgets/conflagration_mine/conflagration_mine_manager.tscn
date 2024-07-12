@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm4t1ud8f7n58"]
+
+[ext_resource type="Script" path="res://scenes/skills/gadgets/conflagration_mine/conflagration_mine_manager.gd" id="1_pnuuq"]
+[ext_resource type="PackedScene" uid="uid://cq6rvxh7yjpg6" path="res://scenes/skills/gadgets/conflagration_mine/conflagration_mine_skill.tscn" id="2_jvu5i"]
+
+[node name="ConflagrationMineManager" type="Node2D"]
+script = ExtResource("1_pnuuq")
+conflagration_mine_skill = ExtResource("2_jvu5i")
+tags = Array[String](["energy", "tacdev"])

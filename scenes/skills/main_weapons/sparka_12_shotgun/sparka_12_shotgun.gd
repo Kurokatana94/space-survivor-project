@@ -8,6 +8,9 @@ extends Area2D
 
 var damage_range: Array[float]
 var damage_multiplier: float
+var tags: Array[String]
+var critical_chance: float
+var critical_damage: float
 var pallets_amount: int
 var reload_speed: float
 var max_range: float
@@ -47,3 +50,6 @@ func shoot():
 		bullet.max_distance = max_range
 		bullet.damage_range = damage_range
 		bullet.damage_multiplier = damage_multiplier
+		bullet.tags = tags
+		bullet.critical_chance = critical_chance
+		bullet.critical_damage = critical_damage
