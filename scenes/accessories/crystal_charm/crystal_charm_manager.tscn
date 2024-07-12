@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://djcbb0jo13hm6"]
+
+[ext_resource type="Script" path="res://scenes/accessories/crystal_charm/crystal_charm_manager.gd" id="1_ua4xb"]
+[ext_resource type="PackedScene" uid="uid://di80tp58gu56g" path="res://scenes/accessories/crystal_charm/crystal_charm_lq.tscn" id="2_o0skl"]
+[ext_resource type="PackedScene" uid="uid://3bj3lilx6axs" path="res://scenes/accessories/crystal_charm/crystal_charm_nm.tscn" id="3_xcf83"]
+[ext_resource type="PackedScene" uid="uid://b56q70t858ejr" path="res://scenes/accessories/crystal_charm/crystal_charm_hq.tscn" id="4_emsei"]
+
+[node name="CrystalCharmManager" type="Node"]
+script = ExtResource("1_ua4xb")
+crystal_charm_lq = ExtResource("2_o0skl")
+crystal_charm_nm = ExtResource("3_xcf83")
+crystal_charm_hq = ExtResource("4_emsei")

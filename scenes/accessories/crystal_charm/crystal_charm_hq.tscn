@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b56q70t858ejr"]
+
+[ext_resource type="Script" path="res://scenes/accessories/crystal_charm/crystal_charm.gd" id="1_p0ip6"]
+
+[node name="CrystalCharmHQ" type="Node"]
+script = ExtResource("1_p0ip6")

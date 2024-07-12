@@ -32,7 +32,6 @@ func apply_damage(applied_damage_range: Array[float], multiplier: float):
 					return
 
 func _on_animated_sprite_2d_animation_finished():
-	print(damage_multiplier)
 	explosion_animation_ended.emit()
 
 func update_explosion_area():

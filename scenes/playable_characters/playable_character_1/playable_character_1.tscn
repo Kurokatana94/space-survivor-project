@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8jwfj2ovbamx"]
+[gd_scene load_steps=9 format=3 uid="uid://c8jwfj2ovbamx"]
 
 [ext_resource type="Script" path="res://scenes/playable_characters/playable_character_1/playable_character_1.gd" id="1_al7j8"]
 [ext_resource type="PackedScene" uid="uid://c14v16ewvalqg" path="res://scenes/components/health_system_component/health_system_component.tscn" id="3_5ui55"]
 [ext_resource type="PackedScene" uid="uid://bmjq6no4ftejx" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_37kse"]
 [ext_resource type="PackedScene" uid="uid://cm4t1ud8f7n58" path="res://scenes/skills/gadgets/conflagration_mine/conflagration_mine_manager.tscn" id="4_ttknp"]
+[ext_resource type="PackedScene" uid="uid://djcbb0jo13hm6" path="res://scenes/accessories/crystal_charm/crystal_charm_manager.tscn" id="5_y8uel"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2d82"]
 radius = 16.0
@@ -56,5 +57,7 @@ position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_oqoaf")
 
 [node name="ConflagrationMineManager" parent="." instance=ExtResource("4_ttknp")]
+
+[node name="CrystalCharmManager" parent="." instance=ExtResource("5_y8uel")]
 
 [connection signal="is_dead" from="HealthSystemComponent" to="." method="_on_health_system_component_is_dead"]
