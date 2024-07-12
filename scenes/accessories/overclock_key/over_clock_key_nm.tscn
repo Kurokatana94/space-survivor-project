@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi1bywelyurg5"]
+
+[ext_resource type="Script" path="res://scenes/accessories/overclock_key/overclock_key.gd" id="1_r17lx"]
+
+[node name="OverClockKeyNM" type="Node"]
+script = ExtResource("1_r17lx")

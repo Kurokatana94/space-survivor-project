@@ -11,6 +11,7 @@ var damage_range: Array[float]
 var damage_multiplier: float = 1.0
 var base_explosion_radius: float
 var first_shot: bool = true
+var tags: Array[String]
 
 func _ready():
 	base_shooting_cd = shooting_cd.wait_time
@@ -35,23 +36,8 @@ func check_closest_target():
 	if enemies_in_range.size() > 0:
 		var target = enemies_in_range[0]
 		look_at(target.global_position)
-		set_correct_animation_direction($%ShootingPivot.global_rotation)
 	else:
 		return
-#	global_rotation = randf_range(-180, 180) #global_rotation spikes between -8k and + 8k... why the hell?
-#	set_correct_animation_direction($%ShootingPivot.global_rotation)
-
-func set_correct_animation_direction(target_rotation: float):
-	#to change in Godot equivalent to switch method that I don't remember how it's called
-	if target_rotation <= 45 && target_rotation > -45:
-		$AnimatedSprite2D.flip_h = false
-	elif target_rotation <= -45 && target_rotation > -135:
-		print("up")
-	elif target_rotation <= -135 or target_rotation > 135:
-		$AnimatedSprite2D.flip_h = true
-	else:
-		print("down")
-	
 
 func shoot():
 	var new_explosive_bullet_manager = explosive_bullet_manager.instantiate()
@@ -61,5 +47,6 @@ func shoot():
 	new_explosive_bullet_manager.damage_range = damage_range
 	new_explosive_bullet_manager.damage_multiplier = damage_multiplier
 	new_explosive_bullet_manager.base_explosion_radius = base_explosion_radius
+	new_explosive_bullet_manager.tags = tags
 
 	

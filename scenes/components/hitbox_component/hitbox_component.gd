@@ -2,7 +2,7 @@ extends Area2D
 class_name HitboxComponent
 
 @export var damage: float
-@export var damage_multiplier: int = 1
+@export var damage_multiplier: float = 1.0
 @export var damage_cd: float = 1.0
 @onready var damage_cd_timer: Timer = $DamageCDTimer
 

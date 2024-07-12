@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/playable_characters/playable_character_1/playable_character_1.gd" id="1_al7j8"]
 [ext_resource type="PackedScene" uid="uid://c14v16ewvalqg" path="res://scenes/components/health_system_component/health_system_component.tscn" id="3_5ui55"]
 [ext_resource type="PackedScene" uid="uid://bmjq6no4ftejx" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_37kse"]
-[ext_resource type="PackedScene" uid="uid://cm4t1ud8f7n58" path="res://scenes/skills/gadgets/conflagration_mine/conflagration_mine_manager.tscn" id="4_ttknp"]
-[ext_resource type="PackedScene" uid="uid://djcbb0jo13hm6" path="res://scenes/accessories/crystal_charm/crystal_charm_manager.tscn" id="5_y8uel"]
+[ext_resource type="PackedScene" uid="uid://b1qvhj6yb6a01" path="res://scenes/accessories/titanium_plate/titanium_plate_manager.tscn" id="5_b7m5a"]
+[ext_resource type="PackedScene" uid="uid://dwbt5jiiv3hym" path="res://scenes/accessories/t_booster/t_booster_manager.tscn" id="5_efeb3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2d82"]
 radius = 16.0
@@ -24,7 +24,7 @@ motion_mode = 1
 script = ExtResource("1_al7j8")
 
 [node name="HealthSystemComponent" parent="." instance=ExtResource("3_5ui55")]
-base_health = 100
+base_health = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 8)
@@ -56,8 +56,10 @@ debug_color = Color(0.788235, 0.392157, 0.478431, 0.419608)
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_oqoaf")
 
-[node name="ConflagrationMineManager" parent="." instance=ExtResource("4_ttknp")]
+[node name="WeaponsNode" type="Node2D" parent="."]
 
-[node name="CrystalCharmManager" parent="." instance=ExtResource("5_y8uel")]
+[node name="T-BoosterManager" parent="." instance=ExtResource("5_efeb3")]
+
+[node name="TitaniumPlateManager" parent="." instance=ExtResource("5_b7m5a")]
 
 [connection signal="is_dead" from="HealthSystemComponent" to="." method="_on_health_system_component_is_dead"]

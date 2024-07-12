@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccessoriesData" load_steps=3 format=3 uid="uid://bju5hd2lfcjgr"]
+
+[ext_resource type="PackedScene" uid="uid://djcbb0jo13hm6" path="res://scenes/accessories/crystal_charm/crystal_charm_manager.tscn" id="1_caynd"]
+[ext_resource type="Script" path="res://resources/accessories_data/accessories_data.gd" id="2_0bdra"]
+
+[resource]
+script = ExtResource("2_0bdra")
+name = "Crystal Charm"
+scene = ExtResource("1_caynd")
+description = "A necklace taht boosts the experience gained"

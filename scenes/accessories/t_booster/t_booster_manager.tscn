@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwbt5jiiv3hym"]
+
+[ext_resource type="Script" path="res://scenes/accessories/t_booster/t_booster_manager.gd" id="1_8xwne"]
+[ext_resource type="PackedScene" uid="uid://6wxhp2lmihcs" path="res://scenes/accessories/t_booster/t_booster_lq.tscn" id="2_xi5rx"]
+[ext_resource type="PackedScene" uid="uid://bvjbjjokao0h4" path="res://scenes/accessories/t_booster/t_booster_nm.tscn" id="3_ybn6t"]
+[ext_resource type="PackedScene" uid="uid://dh01y4pghgojt" path="res://scenes/accessories/t_booster/t_booster_hq.tscn" id="4_j3ppu"]
+
+[node name="T-BoosterManager" type="Node"]
+script = ExtResource("1_8xwne")
+t_booster_lq = ExtResource("2_xi5rx")
+t_booster_nm = ExtResource("3_ybn6t")
+t_booster_hq = ExtResource("4_j3ppu")

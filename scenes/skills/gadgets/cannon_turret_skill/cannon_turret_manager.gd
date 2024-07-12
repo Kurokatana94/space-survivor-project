@@ -22,6 +22,7 @@ func _ready():
 func _process(delta):
 	if !first_deployment:
 		instantiate_cannon_turret()
+		$DeploymentCD.wait_time = base_deployment_cd
 		first_deployment = true
 
 func level_up():
@@ -37,102 +38,62 @@ func _on_deployment_cd_timeout():
 
 
 func instantiate_cannon_turret():
+	var new_cannon_turret = cannon_turret_skill.instantiate()
+	var spawn_node = get_tree().get_first_node_in_group("player").weapons_node
+	new_cannon_turret.damage_range = damage_range
+	new_cannon_turret.tags = tags
+
 	match current_level:
 		0:
-			instantiate_cannon_turret_level_0()
+			new_cannon_turret.damage_multiplier = damage_multiplier
+			new_cannon_turret.base_explosion_radius = base_explosion_radius
+
+			spawn_node.add_child(new_cannon_turret)
+			new_cannon_turret.global_position = spawn_node.global_position
 		1:
-			instantiate_cannon_turret_level_1()
+			new_cannon_turret.damage_multiplier = damage_multiplier
+			new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.4
+
+			spawn_node.add_child(new_cannon_turret)
+			new_cannon_turret.global_position = spawn_node.global_position			
 		2:
-			instantiate_cannon_turret_level_2()
+			new_cannon_turret.damage_multiplier = damage_multiplier
+			new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.4
+
+			spawn_node.add_child(new_cannon_turret)
+			new_cannon_turret.global_position = spawn_node.global_position
+			new_cannon_turret.skill_duration.wait_time += 2.5
+			reset_turret_cd(new_cannon_turret)
 		3:
-			instantiate_cannon_turret_level_3()
+			new_cannon_turret.damage_multiplier = damage_multiplier
+			new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.4
+
+			spawn_node.add_child(new_cannon_turret)
+			new_cannon_turret.global_position = spawn_node.global_position
+			new_cannon_turret.skill_duration.wait_time += 2.5
+			new_cannon_turret.shooting_cd.wait_time = new_cannon_turret.shooting_cd.wait_time - 0.5
+	
+			reset_turret_cd(new_cannon_turret)
 		4:
-			instantiate_cannon_turret_level_4()
+			new_cannon_turret.damage_multiplier = damage_multiplier
+			new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.8
+
+			spawn_node.add_child(new_cannon_turret)
+			new_cannon_turret.global_position = spawn_node.global_position
+			new_cannon_turret.skill_duration.wait_time += 2.5
+			new_cannon_turret.shooting_cd.wait_time = new_cannon_turret.shooting_cd.wait_time - 0.5
+			
+			reset_turret_cd(new_cannon_turret)
 		5:
-			instantiate_cannon_turret_level_5()
+			new_cannon_turret.damage_multiplier = damage_multiplier
+			new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.8
 
-
-
-#This section handles the instantiation of all the varius levels of the skill checked earlier by its own given level
-
-func instantiate_cannon_turret_level_0(): #basic turret
-	var new_cannon_turret = cannon_turret_skill.instantiate()
-	var player = get_parent()
-	new_cannon_turret.damage_range = damage_range
-	new_cannon_turret.damage_multiplier = damage_multiplier
-	new_cannon_turret.base_explosion_radius = base_explosion_radius
-
-
-	player.add_child(new_cannon_turret)
-	new_cannon_turret.global_position = player.global_position
-
-
-func instantiate_cannon_turret_level_1(): #damage will be raised in the explosion script
-	var new_cannon_turret = cannon_turret_skill.instantiate()
-	var player = get_parent()
-	new_cannon_turret.damage_range = damage_range
-	new_cannon_turret.damage_multiplier = damage_multiplier
-	new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.4
-
-	player.add_child(new_cannon_turret)
-	new_cannon_turret.global_position = player.global_position
-
-func instantiate_cannon_turret_level_2(): #area of effect will be raised in the explosion script
-	var new_cannon_turret = cannon_turret_skill.instantiate()
-	var player = get_parent()
-	new_cannon_turret.damage_range = damage_range
-	new_cannon_turret.damage_multiplier = damage_multiplier
-	new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.4
-
-	player.add_child(new_cannon_turret)
-	new_cannon_turret.global_position = player.global_position
-	new_cannon_turret.skill_duration.wait_time += 2.5
-	
-	reset_turret_cd(new_cannon_turret)
-	
-func instantiate_cannon_turret_level_3(): # updated skill cd
-	var new_cannon_turret = cannon_turret_skill.instantiate()
-	var player = get_parent()
-	new_cannon_turret.damage_range = damage_range
-	new_cannon_turret.damage_multiplier = damage_multiplier
-	new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.4
-
-	player.add_child(new_cannon_turret)
-	new_cannon_turret.global_position = player.global_position
-	new_cannon_turret.skill_duration.wait_time += 2.5
-	new_cannon_turret.shooting_cd.wait_time = new_cannon_turret.shooting_cd.wait_time - 0.5
-	
-	reset_turret_cd(new_cannon_turret)
-
-func instantiate_cannon_turret_level_4(): #area and damage will be raised in the explosion script
-	var new_cannon_turret = cannon_turret_skill.instantiate()
-	var player = get_parent()
-	new_cannon_turret.damage_range = damage_range
-	new_cannon_turret.damage_multiplier = damage_multiplier
-	new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.8
-
-	player.add_child(new_cannon_turret)
-	new_cannon_turret.global_position = player.global_position
-	new_cannon_turret.skill_duration.wait_time += 2.5
-	new_cannon_turret.shooting_cd.wait_time = new_cannon_turret.shooting_cd.wait_time - 0.5
-	
-	reset_turret_cd(new_cannon_turret)
-
-func instantiate_cannon_turret_level_5(): #updated skill cd, shooting cd and skill duration
-	var new_cannon_turret = cannon_turret_skill.instantiate()
-	var player = get_parent()
-	new_cannon_turret.damage_range = damage_range
-	new_cannon_turret.damage_multiplier = damage_multiplier
-	new_cannon_turret.base_explosion_radius = base_explosion_radius * 1.8
-
-	player.add_child(new_cannon_turret)
-	new_cannon_turret.global_position = player.global_position
-	new_cannon_turret.skill_duration.wait_time += 5.0
-	new_cannon_turret.shooting_cd.wait_time = new_cannon_turret.shooting_cd.wait_time - 1.0
-	
-	reset_turret_cd(new_cannon_turret)
-
-
+			spawn_node.add_child(new_cannon_turret)
+			new_cannon_turret.global_position = spawn_node.global_position
+			new_cannon_turret.skill_duration.wait_time += 5.0
+			new_cannon_turret.shooting_cd.wait_time = new_cannon_turret.shooting_cd.wait_time - 1.0
+			
+			reset_turret_cd(new_cannon_turret)
 
 func reset_turret_cd(new_cannon_turret):
 		if new_cannon_turret.skill_duration.is_stopped():

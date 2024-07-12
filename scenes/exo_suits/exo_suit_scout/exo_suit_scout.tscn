@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxwj6qspn51hm"]
+[gd_scene load_steps=5 format=3 uid="uid://dxwj6qspn51hm"]
 
 [ext_resource type="Texture2D" uid="uid://ca6bre6aujitw" path="res://assets/Monochrome/Tiles/tile_0126.png" id="1_kon0g"]
 [ext_resource type="Script" path="res://scenes/exo_suits/exo_suit_scout/exo_suit_scout.gd" id="1_s3rcg"]
+[ext_resource type="Resource" uid="uid://bju5hd2lfcjgr" path="res://resources/accessories_data/crystal_charm_data.tres" id="2_leapa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ie50o"]
 animations = [{
@@ -16,6 +17,7 @@ animations = [{
 
 [node name="ExoSuitScout" type="Node2D"]
 script = ExtResource("1_s3rcg")
+crystal_charm_manager = ExtResource("2_leapa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

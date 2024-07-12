@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccessoriesData" load_steps=3 format=3 uid="uid://cufcyafe7k1tg"]
+
+[ext_resource type="PackedScene" uid="uid://bcio2ceipstlr" path="res://scenes/accessories/overclock_key/overclock_key_manager.tscn" id="1_4v4wq"]
+[ext_resource type="Script" path="res://resources/accessories_data/accessories_data.gd" id="2_qlbls"]
+
+[resource]
+script = ExtResource("2_qlbls")
+name = "Overclock Key"
+scene = ExtResource("1_4v4wq")
+description = "A key that overclocks the turrets system increasing their stats"

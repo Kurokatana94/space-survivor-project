@@ -3,9 +3,10 @@ extends CharacterBody2D
 @onready var health_system_component: HealthSystemComponent = $HealthSystemComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var pickup_area: Area2D = $PickUpArea
+@onready var weapons_node: Node2D = $WeaponsNode
 
 var direction: Vector2
-var max_speed: int = 150
+var max_speed: float = 150
 
 const ACCELERATION_SMOOTHING = 25
 

@@ -13,10 +13,15 @@ var description = "A mine that explodes when an enemy steps on it"
 const MAX_LEVEL = 5
 var current_level = 5
 
-func _ready():
-	instantiate_mine_skill()
+var first_deployment = true
+
+func _process(delta):
+	if first_deployment:
+		instantiate_mine_skill()
+		first_deployment = false
 
 func instantiate_mine_skill():
+	print(damage_multiplier)
 	var new_mine = conflagration_mine_skill.instantiate()
 	new_mine.global_position = global_position
 	add_child(new_mine)

@@ -8,7 +8,7 @@ var damage_range: Array[float]
 var damage_multiplier: float
 var base_explosion_radius: float
 var mines_quantity: int
-var spawn_radius: float = 150  # radius around the player where the mines will spawn
+var spawn_radius: float = 100  # radius around the player where the mines will spawn
 var first_deployment: bool = true
 var tags: Array[String]
 

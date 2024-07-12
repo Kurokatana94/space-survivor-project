@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-global_data="*res://scenes/global_data/global_data.gd"
+global_data="*res://global_data/global_data.gd"
 
 [display]
 

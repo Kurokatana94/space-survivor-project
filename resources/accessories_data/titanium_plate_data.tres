@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccessoriesData" load_steps=3 format=3 uid="uid://dihisjgpfrslp"]
+
+[ext_resource type="PackedScene" uid="uid://b1qvhj6yb6a01" path="res://scenes/accessories/titanium_plate/titanium_plate_manager.tscn" id="1_yya0d"]
+[ext_resource type="Script" path="res://resources/accessories_data/accessories_data.gd" id="2_ej2b4"]
+
+[resource]
+script = ExtResource("2_ej2b4")
+name = "Titanium Plate"
+scene = ExtResource("1_yya0d")
+description = "A thick plate of pure titanium that boosts your defense at the cost of your speed"

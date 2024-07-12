@@ -17,7 +17,7 @@ const MAX_LEVEL: int = 5
 var current_level: int = 0
 
 func _ready():
-    instantiate_gun()
+    call_deferred("instantiate_gun")
 
 func level_up():
     if current_level < MAX_LEVEL:

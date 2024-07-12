@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcio2ceipstlr"]
+
+[ext_resource type="Script" path="res://scenes/accessories/overclock_key/overclock_key_manager.gd" id="1_vnvt3"]
+[ext_resource type="PackedScene" uid="uid://ptqfry2jejll" path="res://scenes/accessories/overclock_key/over_clock_key_lq.tscn" id="2_m0u7x"]
+[ext_resource type="PackedScene" uid="uid://bi1bywelyurg5" path="res://scenes/accessories/overclock_key/over_clock_key_nm.tscn" id="3_kq2qc"]
+[ext_resource type="PackedScene" uid="uid://yrguqrbag60l" path="res://scenes/accessories/overclock_key/over_clock_key_hq.tscn" id="4_okijr"]
+
+[node name="OverclockKeyManager" type="Node"]
+script = ExtResource("1_vnvt3")
+overclock_key_lq = ExtResource("2_m0u7x")
+overclock_key_nm = ExtResource("3_kq2qc")
+overclock_key_hq = ExtResource("4_okijr")

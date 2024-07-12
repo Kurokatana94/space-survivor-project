@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6wxhp2lmihcs"]
+
+[ext_resource type="Script" path="res://scenes/accessories/t_booster/t_booster.gd" id="1_pv3n5"]
+
+[node name="T-BoosterLQ" type="Node"]
+script = ExtResource("1_pv3n5")

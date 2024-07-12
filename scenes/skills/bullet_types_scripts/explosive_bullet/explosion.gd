@@ -23,6 +23,7 @@ func apply_damage(applied_damage_range: Array[float], multiplier: float):
 		for target in targets_in_range.size():
 			if targets_in_range[target] != null or target >= targets_in_range.size():
 				var current_target = targets_in_range[target]
+				print(damage_multiplier)
 				current_target.deal_damage_to_target(applied_damage_range, multiplier, 0.0, 0.0, tags)
 				if target == targets_in_range.size() -1:
 					has_damage_been_applied = true

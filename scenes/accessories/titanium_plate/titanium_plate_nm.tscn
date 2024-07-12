@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnsm6v5vgw6mg"]
+
+[ext_resource type="Script" path="res://scenes/accessories/titanium_plate/titanium_plate.gd" id="1_ubpsn"]
+
+[node name="TitaniumPlateNM" type="Node"]
+script = ExtResource("1_ubpsn")

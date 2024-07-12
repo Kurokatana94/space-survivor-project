@@ -33,7 +33,7 @@ func instantiate_weapons(player: CharacterBody2D):
 	for i in weapon_list.size():
 		if weapon_list[i].name == global_data.selected_weapon:
 			var weapon = weapon_list[i].scene.instantiate()
-			player.add_child(weapon)
+			player.weapons_node.add_child(weapon)
 			abilities_manager.equipped_skill_list.append(weapon_list[i])
 			abilities_manager.skill_list.append(weapon_list[i])
 			abilities_manager.added_skills += 1
