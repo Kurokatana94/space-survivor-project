@@ -37,7 +37,7 @@ script = ExtResource("1_sqrhu")
 [node name="ExpDropManager" parent="." instance=ExtResource("6_rq8gj")]
 
 [node name="HealthSystemComponent" parent="." instance=ExtResource("5_uw8nr")]
-max_health = 150
+base_health = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

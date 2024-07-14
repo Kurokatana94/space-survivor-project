@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://igukj2gmkai3"]
+
+[ext_resource type="Script" path="res://scenes/skills/gadgets/lmg_spitfire/lmg_spitfire.gd" id="1_tcdgt"]
+[ext_resource type="PackedScene" uid="uid://b7fgppt3vdqag" path="res://scenes/skills/gadgets/lmg_spitfire/lmg_spitfire_bullet.tscn" id="2_watv5"]
+[ext_resource type="Texture2D" uid="uid://dn8oyn7waxnpx" path="res://assets/Monochrome/Tiles/tile_0123.png" id="3_shgjr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrpa7"]
+radius = 500.0
+
+[node name="LMGSpitfire" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_tcdgt")
+lmg_spitfire_bullet = ExtResource("2_watv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.74999, -0.0624957)
+rotation = 1.57078
+scale = Vector2(0.734375, 1.02344)
+texture = ExtResource("3_shgjr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wrpa7")
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(10, -1)
+
+[node name="ShootingCD" type="Timer" parent="."]
+wait_time = 0.06
+autostart = true
+
+[connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]

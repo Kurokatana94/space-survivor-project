@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var sparka_12_bullet: PackedScene
+@export var lmg_spitfire_bullet: PackedScene
 
 @onready var shooting_cd: Timer = $ShootingCD
 
@@ -9,8 +9,8 @@ var damage_multiplier: float
 var tags: Array[String]
 var critical_chance: float
 var critical_damage: float
-var pallets_amount: int
 var reload_speed: float
+var mag_size: int
 var max_range: float
 var first_shot: bool = true
 
@@ -21,6 +21,7 @@ func _physics_process(delta):
 		_on_shooting_cd_timeout()
 
 func _on_shooting_cd_timeout():
+	print("Shooting")
 	shoot()
 
 func check_closest_target():
@@ -38,16 +39,15 @@ func check_closest_target():
 		return
 
 func shoot():
-	for i in pallets_amount:
-		var bullet = sparka_12_bullet.instantiate()
-		bullet.global_position = $ShootingPoint.global_position
-		bullet.global_rotation = $ShootingPoint.global_rotation + deg_to_rad(randf_range(-15, 15))
-		
-		add_child(bullet)
+	var bullet = lmg_spitfire_bullet.instantiate()
+	bullet.global_position = $ShootingPoint.global_position
+	bullet.global_rotation = $ShootingPoint.global_rotation + deg_to_rad(randf_range(-7.5, 7.5))
+	
+	add_child(bullet)
 
-		bullet.max_distance = max_range
-		bullet.damage_range = damage_range
-		bullet.damage_multiplier = damage_multiplier
-		bullet.tags = tags
-		bullet.critical_chance = critical_chance
-		bullet.critical_damage = critical_damage
+	bullet.max_distance = max_range
+	bullet.damage_range = damage_range
+	bullet.damage_multiplier = damage_multiplier
+	bullet.tags = tags
+	bullet.critical_chance = critical_chance
+	bullet.critical_damage = critical_damage

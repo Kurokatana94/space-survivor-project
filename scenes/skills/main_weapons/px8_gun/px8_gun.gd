@@ -14,7 +14,6 @@ var critical_damage: float
 var first_shot: bool = true
 var base_barrage_count: int = 2
 var current_barrage_count: int
-
 func _ready():
 	current_barrage_count = base_barrage_count
 
@@ -39,6 +38,7 @@ func shoot():
 	
 	add_child(bullet)
 
+	bullet.tags = tags
 	bullet.damage_range = damage_range
 	bullet.damage_multiplier = damage_multiplier
 	shooting_barrage_delay.start()

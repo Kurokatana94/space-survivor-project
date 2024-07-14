@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4c4d5gihqbop"]
+
+[ext_resource type="Script" path="res://scenes/skills/gadgets/lmg_spitfire/lmg_spitfire_manager.gd" id="1_lpcvs"]
+[ext_resource type="PackedScene" uid="uid://igukj2gmkai3" path="res://scenes/skills/gadgets/lmg_spitfire/lmg_spitfire.tscn" id="2_t5h48"]
+
+[node name="LMGSpitfireManager" type="Node2D"]
+script = ExtResource("1_lpcvs")
+lmg_spitfire = ExtResource("2_t5h48")
+tags = Array[String](["projectile"])

@@ -26,7 +26,7 @@ func instantiate_gun():
 	new_gun.global_position = get_parent().global_position
 	add_child(new_gun)
 	new_gun.damage_range = damage_range
-
+	new_gun.tags = tags
 	match current_level:
 		0:
 			new_gun.damage_multiplier = damage_multiplier

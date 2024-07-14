@@ -9,6 +9,7 @@ var critical_chance: float = 0.0
 var critical_damage: float = 2.0
 var pallets_amount: int = 8
 var reload_speed: float = 5.5
+var mag_size: int #not used for now but it will soon
 var base_range: float = 120
 var type: String = "skill"
 var ability_name: String = "SPARKA 12"

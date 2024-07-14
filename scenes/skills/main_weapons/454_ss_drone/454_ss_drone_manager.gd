@@ -11,6 +11,7 @@ var deployment_cd: float = 1.0 #same as above
 var type = "skill"
 var ability_name = "454-SS \"Sparky Swarm\""
 var description = "A drone that shoots bullets and follows you"
+
 const MAX_LEVEL = 5
 var current_level = 0
 
