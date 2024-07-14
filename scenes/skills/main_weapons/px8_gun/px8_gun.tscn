@@ -41,8 +41,11 @@ autostart = true
 wait_time = 0.06
 one_shot = true
 
+[node name="ReloadCD" type="Timer" parent="."]
+
 [node name="ShootingPoint" type="Marker2D" parent="."]
 position = Vector2(8, 0)
 
 [connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]
 [connection signal="timeout" from="ShootingBarrageDelay" to="." method="_on_shooting_barrage_delay_timeout"]
+[connection signal="timeout" from="ReloadCD" to="." method="_on_reload_cd_timeout"]

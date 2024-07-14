@@ -27,7 +27,10 @@ shape = SubResource("CircleShape2D_wrpa7")
 position = Vector2(12, -2)
 
 [node name="ShootingCD" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 autostart = true
 
+[node name="ReloadCD" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]
+[connection signal="timeout" from="ReloadCD" to="." method="_on_reload_cd_timeout"]

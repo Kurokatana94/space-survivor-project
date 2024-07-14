@@ -7,6 +7,8 @@ var damage_range: Array[float] = [17.0, 34.0] #damage range for base level weapo
 var damage_multiplier: float = 1.0
 var critical_chance: float = 0.0
 var critical_damage: float = 2.0
+var reload_speed: float = 4
+var mag_size: int = 20
 var type: String = "skill"
 var ability_name: String = "PX8"
 var description: String = "Barrage shooting pistol"
@@ -27,6 +29,8 @@ func instantiate_gun():
 	add_child(new_gun)
 	new_gun.damage_range = damage_range
 	new_gun.tags = tags
+	new_gun.reload_cd.wait_time = reload_speed
+	new_gun.mag_size = mag_size
 	match current_level:
 		0:
 			new_gun.damage_multiplier = damage_multiplier
@@ -64,6 +68,7 @@ func instantiate_gun():
 			new_gun.damage_multiplier = damage_multiplier + .5
 			new_gun.base_barrage_count += 2
 			new_gun.current_barrage_count = new_gun.base_barrage_count
+			new_gun.mag_size += mag_size * .5
 			new_gun.shooting_cd.wait_time -= 0.1
 			if new_gun.shooting_cd.is_stopped():
 				new_gun.shooting_cd.start()

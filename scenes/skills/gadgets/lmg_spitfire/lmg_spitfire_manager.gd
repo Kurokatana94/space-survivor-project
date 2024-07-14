@@ -26,29 +26,29 @@ func instantiate_lmg_spitfire():
 	new_lmg_spitfire.damage_range = damage_range
 	new_lmg_spitfire.max_range = base_range
 	new_lmg_spitfire.tags = tags
-	new_lmg_spitfire.reload_speed = reload_speed
+	new_lmg_spitfire.reload_cd.wait_time = reload_speed
 	new_lmg_spitfire.mag_size = mag_size
 	match current_level:
 		0:
 			new_lmg_spitfire.damage_multiplier = damage_multiplier
 		1:
 			new_lmg_spitfire.damage_multiplier = damage_multiplier
-			new_lmg_spitfire.reload_speed -= 1
+			new_lmg_spitfire.reload_cd.wait_time -= 1
 		2:
 			new_lmg_spitfire.damage_multiplier = damage_multiplier
-			new_lmg_spitfire.reload_speed -= 1
+			new_lmg_spitfire.reload_cd.wait_time -= 1
 			new_lmg_spitfire.mag_size += mag_size * .5
 		3:
 			new_lmg_spitfire.damage_multiplier += damage_multiplier * .5
-			new_lmg_spitfire.reload_speed -= 1
+			new_lmg_spitfire.reload_cd.wait_time -= 1
 			new_lmg_spitfire.mag_size += mag_size * .5
 		4:
 			new_lmg_spitfire.damage_multiplier += damage_multiplier * .5
-			new_lmg_spitfire.reload_speed -= 1
+			new_lmg_spitfire.reload_cd.wait_time -= 1
 			new_lmg_spitfire.mag_size += mag_size
 		5:
 			new_lmg_spitfire.damage_multiplier += damage_multiplier
-			new_lmg_spitfire.reload_speed -= 3
+			new_lmg_spitfire.reload_cd.wait_time -= 3
 			new_lmg_spitfire.mag_size += mag_size
 
 

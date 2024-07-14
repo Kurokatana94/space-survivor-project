@@ -7,6 +7,8 @@ var damage_range: Array[float] = [90.0, 110.0] #damage range for base level weap
 var damage_multiplier:float = 1.0
 var critical_chance: float = 0.0
 var critical_damage: float = 2.0
+var reload_speed: float = 4
+var mag_size: int = 1
 var type: String = "skill"
 var ability_name: String = "G-72R"
 var description: String = "Piercing ammo shooting carbine"
@@ -27,6 +29,8 @@ func instantiate_gun():
 	add_child(new_carbine)
 	new_carbine.damage_range = damage_range
 	new_carbine.tags = tags
+	new_carbine.reload_cd.wait_time = reload_speed
+	new_carbine.mag_size = mag_size
 
 	match current_level:
 		0:
@@ -34,46 +38,28 @@ func instantiate_gun():
 			new_carbine.critical_chance = critical_chance
 			new_carbine.critical_damage = critical_damage
 		1:
-			new_carbine.damage_multiplier = damage_multiplier + .25
+			new_carbine.damage_multiplier = damage_multiplier
 			new_carbine.critical_chance = critical_chance
-			new_carbine.critical_damage = critical_damage			
+			new_carbine.critical_damage = critical_damage
+			new_carbine.reload_cd.wait_time -= .5
 		2:
-			new_carbine.damage_multiplier = damage_multiplier + .25
-			new_carbine.shooting_cd.wait_time -= .5
+			new_carbine.damage_multiplier = damage_multiplier + .5
 			new_carbine.critical_chance = critical_chance
 			new_carbine.critical_damage = critical_damage
-			if new_carbine.shooting_cd.is_stopped():
-				new_carbine.shooting_cd.start()
-			else:
-				new_carbine.shooting_cd.stop()
-				new_carbine.shooting_cd.start()
+			new_carbine.reload_cd.wait_time -= .5
 		3:
-			new_carbine.damage_multiplier = damage_multiplier + .75
-			new_carbine.shooting_cd.wait_time -= .5
+			new_carbine.damage_multiplier = damage_multiplier + .5
 			new_carbine.critical_chance = critical_chance
 			new_carbine.critical_damage = critical_damage
-			if new_carbine.shooting_cd.is_stopped():
-				new_carbine.shooting_cd.start()
-			else:
-				new_carbine.shooting_cd.stop()
-				new_carbine.shooting_cd.start()
+			new_carbine.reload_cd.wait_time -= 1.5
 		4:
-			new_carbine.damage_multiplier = damage_multiplier + .75
-			new_carbine.shooting_cd.wait_time -= 1
+			new_carbine.damage_multiplier = damage_multiplier + 1.0
 			new_carbine.critical_chance = critical_chance
 			new_carbine.critical_damage = critical_damage
-			if new_carbine.shooting_cd.is_stopped():
-				new_carbine.shooting_cd.start()
-			else:
-				new_carbine.shooting_cd.stop()
-				new_carbine.shooting_cd.start()
+			new_carbine.reload_cd.wait_time -= 1.5
 		5:
-			new_carbine.damage_multiplier = damage_multiplier + 3.0
-			new_carbine.shooting_cd.wait_time -= 1
+			new_carbine.damage_multiplier = damage_multiplier + 2.0
 			new_carbine.critical_chance = critical_chance
 			new_carbine.critical_damage = critical_damage
-			if new_carbine.shooting_cd.is_stopped():
-				new_carbine.shooting_cd.start()
-			else:
-				new_carbine.shooting_cd.stop()
-				new_carbine.shooting_cd.start()
+			new_carbine.reload_cd.wait_time -= 1.5
+

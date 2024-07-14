@@ -30,4 +30,7 @@ position = Vector2(10, -1)
 wait_time = 0.06
 autostart = true
 
+[node name="ReloadCD" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]
+[connection signal="timeout" from="ReloadCD" to="." method="_on_reload_cd_timeout"]
