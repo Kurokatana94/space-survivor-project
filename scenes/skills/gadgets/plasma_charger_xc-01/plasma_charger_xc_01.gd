@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var lmg_spitfire_bullet: PackedScene
+@export var plasma_charger_xc_01_bullet: PackedScene
 
 @onready var shooting_cd: Timer = $ShootingCD
 @onready var reload_cd: Timer = $ReloadCD
@@ -10,6 +10,7 @@ var damage_multiplier: float
 var tags: Array[String]
 var critical_chance: float
 var critical_damage: float
+var dot_tic_cd: float
 var mag_size: int
 var current_mag_size: int
 var max_range: float
@@ -43,9 +44,9 @@ func check_closest_target():
 
 func shoot():
 	if current_mag_size > 0:
-		var bullet = lmg_spitfire_bullet.instantiate()
+		var bullet = plasma_charger_xc_01_bullet.instantiate()
 		bullet.global_position = $ShootingPoint.global_position
-		bullet.global_rotation = $ShootingPoint.global_rotation + deg_to_rad(randf_range(-7.5, 7.5))
+		bullet.global_rotation = $ShootingPoint.global_rotation
 
 		add_child(bullet)
 
@@ -55,11 +56,11 @@ func shoot():
 		bullet.tags = tags
 		bullet.critical_chance = critical_chance
 		bullet.critical_damage = critical_damage
+		bullet.dot_tic_cd = dot_tic_cd
 		current_mag_size -= 1
 	else:
 		reload()
 		return
-
 
 
 func reload():
@@ -75,3 +76,4 @@ func _on_reload_cd_timeout():
 	shooting_cd.start()
 	current_mag_size = mag_size
 	reload_cd.stop()
+

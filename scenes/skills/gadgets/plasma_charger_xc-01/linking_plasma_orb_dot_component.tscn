@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0islqsntoymo"]
+
+[ext_resource type="Script" path="res://scenes/skills/bullet_types_scripts/dot_component.gd" id="1_3tki5"]
+[ext_resource type="Script" path="res://scenes/skills/gadgets/plasma_charger_xc-01/link_to_orb.gd" id="3_6hu3w"]
+
+[node name="LinkingPlasmaOrbDotComponent" type="Node2D"]
+script = ExtResource("1_3tki5")
+
+[node name="DotTicCD" type="Timer" parent="."]
+autostart = true
+
+[node name="LinkToOrb" type="Node2D" parent="."]
+script = ExtResource("3_6hu3w")
+
+[node name="Line2D" type="Line2D" parent="LinkToOrb"]
+width = 1.0
+
+[connection signal="timeout" from="DotTicCD" to="." method="_on_dot_tic_cd_timeout"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4xvfaoe8ln6p"]
+
+[ext_resource type="Script" path="res://scenes/skills/gadgets/plasma_charger_xc-01/plasma_charger_xc_01.gd" id="1_k0yx4"]
+[ext_resource type="PackedScene" uid="uid://b5u716qinpigj" path="res://scenes/skills/gadgets/plasma_charger_xc-01/linking_plasma_orb_bullet.tscn" id="2_eai3o"]
+[ext_resource type="Texture2D" uid="uid://dmg2xahwh84o7" path="res://assets/Monochrome/Tiles/tile_0099.png" id="3_ouhh6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrpa7"]
+radius = 500.0
+
+[node name="PlasmaChargerXC-01" type="Area2D"]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_k0yx4")
+plasma_charger_xc_01_bullet = ExtResource("2_eai3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5, -1)
+scale = Vector2(0.875, 0.375)
+texture = ExtResource("3_ouhh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wrpa7")
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+position = Vector2(12, -2)
+
+[node name="ShootingCD" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ReloadCD" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootingCD" to="." method="_on_shooting_cd_timeout"]
+[connection signal="timeout" from="ReloadCD" to="." method="_on_reload_cd_timeout"]

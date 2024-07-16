@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5u716qinpigj"]
+
+[ext_resource type="Script" path="res://scenes/skills/bullet_types_scripts/linking_orb_bullet.gd" id="1_m3lsh"]
+[ext_resource type="PackedScene" uid="uid://d0islqsntoymo" path="res://scenes/skills/gadgets/plasma_charger_xc-01/linking_plasma_orb_dot_component.tscn" id="2_yipc6"]
+[ext_resource type="Texture2D" uid="uid://dynp15rrdn6cr" path="res://assets/Monochrome/Tiles/tile_0122.png" id="3_sa1p4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlyt2"]
+radius = 50.0
+
+[node name="LinkingPlasmaOrbBullet" type="Area2D"]
+top_level = true
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_m3lsh")
+orb_link_dot = ExtResource("2_yipc6")
+speed = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vlyt2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_sa1p4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
