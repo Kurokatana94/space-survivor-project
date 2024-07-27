@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ba3ch55ygt0g3"]
 
 [ext_resource type="Script" path="res://scenes/exo_suits/exo_suit_engineer/exo_suit_engineer.gd" id="1_nunm4"]
-[ext_resource type="Texture2D" uid="uid://ca6bre6aujitw" path="res://assets/Monochrome/Tiles/tile_0126.png" id="2_740ax"]
+[ext_resource type="Texture2D" uid="uid://bryy06rgsnndr" path="res://assets/player/actor/base_actor.png" id="2_u742g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ie50o"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_740ax")
+"texture": ExtResource("2_u742g")
 }],
 "loop": true,
 "name": &"default",
