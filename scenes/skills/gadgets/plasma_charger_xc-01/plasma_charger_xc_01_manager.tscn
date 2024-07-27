@@ -6,4 +6,4 @@
 [node name="PlasmaChargerXC-01Manager" type="Node2D"]
 script = ExtResource("1_k5047")
 plasma_charger_xc_01 = ExtResource("2_3lkp7")
-tags = Array[String](["energy"])
+tags = Array[String](["plasma"])

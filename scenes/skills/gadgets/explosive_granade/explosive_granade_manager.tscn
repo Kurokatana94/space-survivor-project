@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drrt8hshc0upa"]
+
+[ext_resource type="Script" path="res://scenes/skills/gadgets/explosive_granade/explosive_granade_manager.gd" id="1_3fh1v"]
+[ext_resource type="PackedScene" uid="uid://x662v53w8a5b" path="res://scenes/skills/gadgets/explosive_granade/explosive_grenade_skill.tscn" id="2_dwbi6"]
+
+[node name="ExplosiveGranadeManager" type="Node2D"]
+script = ExtResource("1_3fh1v")
+explosive_granade_skill = ExtResource("2_dwbi6")
+tags = Array[String](["explosive", "tacdev"])

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxmxiuemn8110"]
+
+[ext_resource type="Script" path="res://scenes/skills/bullet_types_scripts/explosive_bullet/explosion.gd" id="1_ranl8"]
+[ext_resource type="Texture2D" uid="uid://c53u8aum6yp1g" path="res://assets/Monochrome/Tiles/tile_0109.png" id="2_0hy4m"]
+[ext_resource type="Texture2D" uid="uid://ux2l0s5ou4vy" path="res://assets/Monochrome/Tiles/tile_0110.png" id="3_bxf3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxywh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixps7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0hy4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bxf3s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GrenadeExplosion" type="Area2D"]
+top_level = true
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ranl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dxywh")
+debug_color = Color(0.792157, 0.384314, 0.501961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ixps7")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

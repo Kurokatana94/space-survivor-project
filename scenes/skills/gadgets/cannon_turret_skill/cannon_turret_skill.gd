@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var explosive_bullet_manager: PackedScene
+
 @onready var enemy_aim_bot: Area2D = $EnemyAimBot
 @onready var skill_duration: Timer = $SkillDuration
 @onready var shooting_cd: Timer = $ShootingCD

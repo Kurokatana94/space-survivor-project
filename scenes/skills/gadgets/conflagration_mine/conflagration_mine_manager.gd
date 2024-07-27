@@ -21,7 +21,6 @@ func _process(delta):
 		first_deployment = false
 
 func instantiate_mine_skill():
-	print(damage_multiplier)
 	var new_mine = conflagration_mine_skill.instantiate()
 	new_mine.global_position = global_position
 	add_child(new_mine)

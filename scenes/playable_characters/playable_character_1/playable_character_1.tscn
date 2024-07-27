@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/playable_characters/playable_character_1/playable_character_1.gd" id="1_al7j8"]
 [ext_resource type="PackedScene" uid="uid://c14v16ewvalqg" path="res://scenes/components/health_system_component/health_system_component.tscn" id="3_5ui55"]
 [ext_resource type="PackedScene" uid="uid://bmjq6no4ftejx" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_37kse"]
+[ext_resource type="PackedScene" uid="uid://drrt8hshc0upa" path="res://scenes/skills/gadgets/explosive_granade/explosive_granade_manager.tscn" id="4_of3w6"]
 [ext_resource type="PackedScene" uid="uid://b1qvhj6yb6a01" path="res://scenes/accessories/titanium_plate/titanium_plate_manager.tscn" id="5_b7m5a"]
-[ext_resource type="PackedScene" uid="uid://c6b3iadcv5l6w" path="res://scenes/skills/gadgets/plasma_charger_xc-01/plasma_charger_xc_01_manager.tscn" id="5_vvebf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2d82"]
 radius = 16.0
@@ -58,7 +58,7 @@ shape = SubResource("CapsuleShape2D_oqoaf")
 
 [node name="WeaponsNode" type="Node2D" parent="."]
 
-[node name="PlasmaChargerXC-01Manager" parent="WeaponsNode" instance=ExtResource("5_vvebf")]
+[node name="ExplosiveGranadeManager" parent="WeaponsNode" instance=ExtResource("4_of3w6")]
 
 [node name="TitaniumPlateManager" parent="." instance=ExtResource("5_b7m5a")]
 

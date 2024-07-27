@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilitiesData" load_steps=3 format=3 uid="uid://by4y52mk6y15n"]
+
+[ext_resource type="PackedScene" uid="uid://c6b3iadcv5l6w" path="res://scenes/skills/gadgets/plasma_charger_xc-01/plasma_charger_xc_01_manager.tscn" id="1_eb80w"]
+[ext_resource type="Script" path="res://resources/abilities_data/abilities_data.gd" id="2_dn1fy"]
+
+[resource]
+script = ExtResource("2_dn1fy")
+name = "Plasma Charger XC-01"
+scene = ExtResource("1_eb80w")
+description = "A plasma gun that shoots plasma orbs that link to enemies dealing damage over time"
+type = "skill"
+tags = Array[String](["plasma"])

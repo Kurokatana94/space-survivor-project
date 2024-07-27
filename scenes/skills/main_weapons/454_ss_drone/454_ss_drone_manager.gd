@@ -8,9 +8,10 @@ var damage_multiplier: float = 1.0
 var base_explosion_radius: float = 10.0
 var base_deployment_cd: float = 1.0 #Had to add this to make the overclock key work even thou this var is not used here. I don't like it but it works
 var deployment_cd: float = 1.0 #same as above
-var type = "skill"
-var ability_name = "454-SS \"Sparky Swarm\""
-var description = "A drone that shoots bullets and follows you"
+var extra_drones_amount: int = 0
+var type: String = "skill"
+var ability_name: String = "454-SS \"Sparky Swarm\""
+var description: String = "A drone that shoots bullets and follows you"
 
 const MAX_LEVEL = 5
 var current_level = 0
@@ -29,15 +30,19 @@ func instantiate_drone():
 		0:
 			new_drone.damage_multiplier = damage_multiplier
 			new_drone.base_explosion_radius = base_explosion_radius
+			for i in extra_drones_amount:
+				instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
 		1:
 			new_drone.damage_multiplier = damage_multiplier
 			new_drone.base_explosion_radius = base_explosion_radius
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
+			for i in extra_drones_amount + 1:
+				instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
 		2:
 			new_drone.shooting_cd.wait_time -= .5
 			new_drone.damage_multiplier = damage_multiplier
 			new_drone.base_explosion_radius = base_explosion_radius
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
+			for i in extra_drones_amount + 1:
+				instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
 			if new_drone.shooting_cd.is_stopped():
 				new_drone.shooting_cd.start()
 			else:
@@ -47,7 +52,8 @@ func instantiate_drone():
 			new_drone.shooting_cd.wait_time -= .5
 			new_drone.damage_multiplier = damage_multiplier
 			new_drone.base_explosion_radius = base_explosion_radius
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 2, new_drone.base_explosion_radius)
+			for i in extra_drones_amount + 1:
+				instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
 			if new_drone.shooting_cd.is_stopped():
 				new_drone.shooting_cd.start()
 			else:
@@ -58,8 +64,8 @@ func instantiate_drone():
 			new_drone.shooting_cd.wait_time -= .5
 			new_drone.damage_multiplier = damage_multiplier
 			new_drone.base_explosion_radius = base_explosion_radius
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 2, new_drone.base_explosion_radius)
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 2, new_drone.base_explosion_radius)
+			for i in extra_drones_amount + 2:
+				instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
 			if new_drone.shooting_cd.is_stopped():
 				new_drone.shooting_cd.start()
 			else:
@@ -70,8 +76,8 @@ func instantiate_drone():
 			new_drone.shooting_cd.wait_time -= 1
 			new_drone.damage_multiplier = damage_multiplier * 2
 			new_drone.base_explosion_radius = base_explosion_radius
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 2, new_drone.base_explosion_radius)
-			instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 2, new_drone.base_explosion_radius)
+			for i in extra_drones_amount + 2:
+				instantiate_extra_drone(new_drone.damage_multiplier, new_drone.shooting_cd.wait_time, 1, new_drone.base_explosion_radius)
 			if new_drone.shooting_cd.is_stopped():
 				new_drone.shooting_cd.start()
 			else:
